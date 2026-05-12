@@ -1,0 +1,12 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+.git/
+.github/
+frontend/node_modules/
+frontend/.next/
+notebooks/
+reports/
+*.md

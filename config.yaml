@@ -1,0 +1,43 @@
+data:
+  cards_file: data/tarot_cards.json
+  images_dir: data/images
+
+embeddings:
+  model: all-MiniLM-L6-v2
+  chunk_size: 512
+  chunk_overlap: 50
+
+vector_db:
+  provider: chroma           # chroma | pinecone
+  collection_name: tarot_cards
+  persist_dir: models/chroma_db
+  top_k: 5
+
+llm:
+  model: claude-haiku-4-5-20251001
+  max_tokens: 1024
+  temperature: 0.7
+
+api:
+  host: "0.0.0.0"
+  port: 8000
+  cors_origins:
+    - "http://localhost:3000"
+
+spreads:
+  single_card:
+    positions: ["The Card"]
+  three_card:
+    positions: ["Past", "Present", "Future"]
+  celtic_cross:
+    positions:
+      - "Present"
+      - "Challenge"
+      - "Past"
+      - "Future"
+      - "Above"
+      - "Below"
+      - "Advice"
+      - "External Influences"
+      - "Hopes and Fears"
+      - "Outcome"
