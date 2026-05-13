@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Cormorant Garamond', serif;
+  background: linear-gradient(135deg, #0d0520 0%, #1a0a35 50%, #0a1628 100%);
+  min-height: 100vh;
+  color: #e8ddd0;
+}
