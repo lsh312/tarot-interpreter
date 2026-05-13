@@ -1,5 +1,9 @@
 # Tarot Interpreter
 
+**Live API:** https://tarot-interpreter.onrender.com | [Interactive docs](https://tarot-interpreter.onrender.com/docs)
+
+> Hosted on Render free tier — first request after idle may take ~30s to cold start.
+
 A RAG-powered tarot reading API. Each reading draws real cards from a shuffled deck (with random orientation), retrieves their symbolic meanings from a vector database, and passes them to Claude for a personalised interpretation.
 
 ## How It Works

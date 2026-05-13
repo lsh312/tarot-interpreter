@@ -22,7 +22,6 @@ env/
 *.ipynb_checkpoints
 
 # Data & Models (tracked via DVC)
-data/images/
 models/
 
 # Vector DB
