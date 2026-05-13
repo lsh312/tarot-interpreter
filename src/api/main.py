@@ -4,6 +4,7 @@ from pathlib import Path
 import yaml
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 from src.agents import TarotAgent
 from src.api.routes import router
@@ -34,6 +35,7 @@ app.add_middleware(
 )
 
 app.include_router(router)
+app.mount("/images", StaticFiles(directory=PROJECT_ROOT / "data" / "images"), name="images")
 
 
 @app.get("/health")
