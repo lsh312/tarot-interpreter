@@ -24,6 +24,7 @@ api:
   cors_origins:
     - "http://localhost:3000"
     - "http://localhost:5173"
+    - "https://tarot-interpreter.vercel.app"
     - "https://tarot-interpreter-hvr955u4v-lsh312s-projects.vercel.app"
 
 spreads:
