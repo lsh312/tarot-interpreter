@@ -1,8 +1,12 @@
 # Tarot Interpreter
 
+**Live app:** https://tarot-interpreter.vercel.app
+
 **Live API:** https://tarot-interpreter.onrender.com | [Interactive docs](https://tarot-interpreter.onrender.com/docs)
 
-> Hosted on Render free tier — first request after idle may take ~30s to cold start.
+**Technical report:** [TECHNICAL_REPORT.md](TECHNICAL_REPORT.md)
+
+> Backend hosted on Render free tier — first request after idle may take ~30s to cold start.
 
 A RAG-powered tarot reading API. Each reading draws real cards from a shuffled deck (with random orientation), retrieves their symbolic meanings from a vector database, and passes them to Claude for a personalised interpretation.
 
@@ -36,6 +40,7 @@ FastAPI returns structured JSON response
 
 | Layer | Technology |
 |---|---|
+| Frontend | React 18, Vite, Tailwind CSS, Framer Motion |
 | LLM | Claude Haiku (`claude-haiku-4-5-20251001`) via Anthropic SDK |
 | Embeddings | `sentence-transformers/all-MiniLM-L6-v2` (local, no extra API key) |
 | Vector DB | Chroma (persisted to `models/chroma_db/`) |
@@ -43,12 +48,19 @@ FastAPI returns structured JSON response
 | Data | 78-card JSON dataset with images |
 | Tests | pytest + FastAPI TestClient |
 | CI | GitHub Actions |
+| Deployment | Vercel (frontend) + Render (backend, Docker) |
 
 ## Project Structure
 
 ```
 tarot-interpreter/
 ├── config.yaml              # All runtime config (model, spreads, DB path, CORS)
+├── frontend/                # React/Vite frontend
+│   ├── src/
+│   │   ├── components/      # SpreadSelector, TarotCard, ReadingView, Interpreter, Background
+│   │   ├── api.js           # API client (fetch wrappers)
+│   │   └── App.jsx          # Root component and screen state machine
+│   └── package.json
 ├── data/
 │   ├── tarot_cards.json     # 78-card dataset
 │   └── images/              # Card images (PNG)
@@ -69,6 +81,22 @@ tarot-interpreter/
 ├── Dockerfile
 └── .github/workflows/ci.yml
 ```
+
+## Local Development
+
+### Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev       # http://localhost:5173
+```
+
+Requires the backend to be running locally or pointed at the live API (default).
+
+### Backend
+
+See Quickstart below.
 
 ## Quickstart
 
